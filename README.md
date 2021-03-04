@@ -42,3 +42,9 @@ Just place the correctly named assemblies and blast files on the same folder and
 1) __*.poss-contam__ file: contains the contigs that didn't got a hit for the most found genera. If this file is not found on the results folder, all contigs belong to the same organism, therefore the assembly was already undoubtedly clean.
 2) __*.CLEAN__ file: contains contigs that got at least one hit for the most found genera.
 3) __*-poss_contam_blastresults__ file: contains the blast hits for the contigs in *.poss-contam. Use it for assessing if this contigs should or should not be removed fom the assembly.
+
+## Credits
+
+Manuel II García-Ulloa
+manuel.gug@hotmail.com
+github.com/manuelgug

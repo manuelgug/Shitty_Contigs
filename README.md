@@ -1,15 +1,15 @@
 # Shitty_Contigs
 
-Shitty_Contigs.sh is a bash script which finds contigs in genomic assemblies that MAY BE the result of contaminants that were unintentionally sequenced with the intended sample. (Apparently, it also finds assembled plasmids and phages!). It works for any assembly from any organism.
+Shitty_Contigs.sh is a bash script for finding contigs in genomic assemblies that MAY BE the result of contaminants unintentionally sequenced alongside an intended sample. (Apparently, it also finds assembled plasmids and phages!). It works for any assembly from any organism.
 
 
 ## Workflow of Shitty_Contigs.sh
 
-1) Identify to what organism (at the genus level) your assembly belongs to, through analyzing a given quantity of blast hits for each contig. By summming all the hits for every unique genus found, Shitty_Contigs.sh determines the genus of your assembly as the most found genus.
+1) Identify to what organism (at the genus level) an assembly belongs to, through analyzing a given quantity of blast hits for each contig: by summming all the hits for every unique genus found, Shitty_Contigs.sh labels the genus with the most hits determines as the genus of the assembly.
 2) List the contigs that contain at least one hit for the most found genus and labels them as "clean" contigs, and the contigs that does not and labels them as "possible contaminants".
 3) Separate the "possible contaminants" from the "clean" the assembly.
 
-IMPORTANT: You need to use your criterion and knowledge of your isolate to judge if contigs proposed as contaminants are to be considered as so. Some cases are more obvious, such as finding many contigs of *Klebsiella oxytoca* on an assembly from a hot spring isolate or elephant contigs on an *Arabidopsis* assembly. However, in microorganisms phages and plasmids can be found in many phylogenetically distant organisms and many other sequences can be horizontally transferred. Also, sometimes there are no hits for some contigs. Shitty_Contigs.sh can only tell what contigs undoubtedly belong to an assembly. In the end, you decide what contigs are indeed shitty.
+IMPORTANT: You need to use your own criterion and knowledge of your isolate to judge if contigs proposed as contaminants are to be considered as so. Some cases are obvious, such as finding many contigs of *Klebsiella oxytoca* on an assembly from a hot spring isolate or elephant contigs on an *Arabidopsis* assembly. However, in microorganisms, phages and plasmids can be found in many phylogenetically distant organisms and many other sequences can be horizontally transferred. Also, sometimes there are no hits for some contigs. Shitty_Contigs.sh can only tell what contigs undoubtedly belong to an assembly. In the end, you decide what contigs are indeed shitty.
 
 ## Inputs
 
@@ -17,9 +17,9 @@ For the correct usage of Shitty_Contigs.sh, you need:
 1) A genomic assembly with a .fasta extension on its file name (e.g. *Streptomyces_contam-Pseudomonas.fasta*)
 2) A blast results file of the contigs against a reference database[*] with the same name as the assembly file plus a .blast extension (e.g. *Streptomyces_contam-Pseudomonas.fasta.blast*).
 
-   +The output format of the blast file should be 0 (-outfmt 0) and it should not have any alignment (-num_alignments 0). 
+   +The output format of the blast file should be 0 (-outfmt 0) and it should not have alignments (-num_alignments 0). 
    
-   +The number of hits for each search (-num_descriptions) is important, as some sequences can be found in many organisms and yours won't necessarily appear as the best hit in some cases. That means that the less desciptions used, the more astringency applied which translates into a higher chance of getting false negatives (more possible contaminants). After testing the program with many descriptions (1, 5, 10, 15, 20) I found 20 to be a good number (-num_descriptions 20). However, feel free to modify as needed.
+   +The number of hits for each search (-num_descriptions) is important, as some sequences can be found in many organisms and yours won't necessarily appear as the best hit in some cases. It could be the 2nd, 3rd or 10th hit although still with a low e-value and high bitscore. That means that the less descriptions used, the more astringency applied, which translates into a higher chance of getting false negatives (more possible contaminants). After testing the program with many descriptions (1, 5, 10, 15, 20) I found 20 to be a good enough value (-num_descriptions 20). However, feel free to modify as needed.
 
 \[*]Shitty_Contigs.sh has been tested with the nt database from ncbi https://ftp.ncbi.nlm.nih.gov/blast/db/FASTA/nt.gz. You can download it and set it up with:
 
@@ -36,7 +36,7 @@ Just place the correctly named assemblies and blast files on the same folder and
 
     chmod +x Shitty_Contigs.sh #only for the first time you run the script in a given computer
     ./Shitty_Contigs.sh
-
+****
 ## Outputs
 
 1) __*.poss-contam__ file: contains the contigs that didn't got a hit for the most found genera. If this file is not found on the results folder, all contigs belong to the same organism, therefore the assembly was already undoubtedly clean.

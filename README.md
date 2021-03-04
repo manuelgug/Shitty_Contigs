@@ -19,7 +19,11 @@ For the correct usage of Shitty_Contigs.sh, you need:
     -The output format of the blast file should be 0 (-outfmt 0) and it should not have any alignment (-num_alignments 0). 
     -The number of hits for each search (-num_descriptions) is important, as some sequences can be found in many organisms and yours won't necessarily appear as the best hit in some cases. That means that the less desciptions used, the more astringency and also a higher chance of false negatives. After testing the program with many descriptions (1, 5, 10, 15, 20) I recommend using 20 (-num_descriptions 20).
 
-\*the program has been tested with the nt database from ncbi <ftp://ftp.ncbi.nlm.nih.gov/blast/db/FASTA/nt.gz>
+\*Shitty_Contigs.sh has been tested with the nt database from ncbi https://ftp.ncbi.nlm.nih.gov/blast/db/FASTA/nt.gz. You can download it and set it up with:
+
+    wget https://ftp.ncbi.nlm.nih.gov/blast/db/FASTA/nt.gz 
+    gunzip -d nt.gz #beware it is 386 GB   
+    makeblastdb -in nt -dbtype nucl -parse_seqids #adds about 100 GB more
 
 Sample command for the blast search (works for a single or many assemblies in the same folder):
 
@@ -35,3 +39,4 @@ Just place the correctly named assemblies and blast files on the same folder and
 
 1) __*.poss-contam__ file: contains the contigs that didn't got a hit for the most found genera. If no this file is not found on the results folder, all contigs belong to the same organism, therefore the assembly is undoubtedly clean.
 2) __*.CLEAN__ file: contains contigs that got at least one hit for the most found genera.
+3) 

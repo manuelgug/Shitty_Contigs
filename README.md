@@ -10,7 +10,7 @@ Shitty_Contigs.sh is a bash script for finding contigs/scaffolds in genomic asse
 1) Identify to what organism (at the genus level) an assembly belongs to, through analyzing a given quantity of blast hits for each contig: by summming all the hits for every unique genus found, Shitty_Contigs.sh labels the genus with the most hits determines as the genus of the assembly.
 2) List the contigs that contain at least one hit for the most found genus and labels them as "clean" contigs, and the contigs that does not and labels them as "possible contaminants".
 
-![alt text](https://github.com/manuelgug/Shitty_Contigs/blob/main/listing.png)
+![alt text](https://github.com/manuelgug/Shitty_Contigs/blob/main/listing.png) 
 
 4) Separate the "possible contaminants" from the "clean" the assembly.
 

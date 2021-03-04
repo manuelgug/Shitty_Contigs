@@ -45,6 +45,6 @@ Just place the correctly named assemblies and blast files on the same folder and
 
 ## Credits
 
-+Manuel II García-Ulloa
-+manuel.gug@hotmail.com
-+github.com/manuelgug
+Manuel II García-Ulloa  
+manuel.gug@hotmail.com  
+github.com/manuelgug  

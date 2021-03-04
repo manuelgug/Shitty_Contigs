@@ -26,8 +26,9 @@ Sample command for the blast search (works for a single or many assemblies in th
     for f in *.fasta; do blastn -query $f -db nt -outfmt 0 -out "$f".blast -num_alignments 0 -num_threads 40 -num_descriptions 20; done
 
 ## Usage
-Just place the correctly named assemblies and blast files on the same folder and run the script (you may need to make the script executable first with chmod +x Shitty_Contigs.sh)
+Just place the correctly named assemblies and blast files on the same folder and run the script (you may need to make the script executable first with 
 
+    chmod +x Shitty_Contigs.sh
     ./Shitty_Contigs.sh
 
 ## Outputs

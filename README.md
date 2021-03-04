@@ -1,6 +1,6 @@
 # Shitty_Contigs
 
-Shitty_Contigs.sh is a bash script which finds contigs in genomic assemblies that MAY BE the result of contaminants that were unintentionally sequenced with the intended sample. (Apparently, it also finds assembled plasmids and phages!). 
+Shitty_Contigs.sh is a bash script which finds contigs in genomic assemblies that MAY BE the result of contaminants that were unintentionally sequenced with the intended sample. (Apparently, it also finds assembled plasmids and phages!). It works for any assembly from any organism.
 
 
 ## Workflow of Shitty_Contigs.sh
@@ -9,7 +9,7 @@ Shitty_Contigs.sh is a bash script which finds contigs in genomic assemblies tha
 2) List the contigs that contain at least one hit for the most found genus and labels them as "clean" contigs, and the contigs that does not and labels them as "possible contaminants".
 3) Separate the "possible contaminants" from the "clean" the assembly.
 
-IMPORTANT: You need to use your criterion and knowledge of your isolate to judge if contigs proposed as contaminants are to be considered as so. Some cases are more obvious, such as finding many contigs of *Klebsiella oxytoca* on an assembly from a hot spring isolate. However, phages and plasmids can be found in many phylogenetically distant organisms and many other sequences can be horizontally transferred. Also, sometimes there are no hits for some contigs. Shitty_Contigs.sh can only tell what contigs undoubtedly belong to an assembly. In the end, you decide what contigs are indeed shitty.
+IMPORTANT: You need to use your criterion and knowledge of your isolate to judge if contigs proposed as contaminants are to be considered as so. Some cases are more obvious, such as finding many contigs of *Klebsiella oxytoca* on an assembly from a hot spring isolate or elephant contigs on an *Arabidopsis* assembly. However, in microorganisms phages and plasmids can be found in many phylogenetically distant organisms and many other sequences can be horizontally transferred. Also, sometimes there are no hits for some contigs. Shitty_Contigs.sh can only tell what contigs undoubtedly belong to an assembly. In the end, you decide what contigs are indeed shitty.
 
 ## Inputs
 
@@ -24,7 +24,7 @@ For the correct usage of Shitty_Contigs.sh, you need:
 \[*]Shitty_Contigs.sh has been tested with the nt database from ncbi https://ftp.ncbi.nlm.nih.gov/blast/db/FASTA/nt.gz. You can download it and set it up with:
 
     wget https://ftp.ncbi.nlm.nih.gov/blast/db/FASTA/nt.gz 
-    gunzip -d nt.gz #beware it is 386 GB   
+    gunzip -d nt.gz #beware it is 386 GB in size  
     makeblastdb -in nt -dbtype nucl -parse_seqids #adds about 100 GB more
 
 Sample command for the blast search (works for a single or many assemblies in the same folder):
@@ -32,7 +32,7 @@ Sample command for the blast search (works for a single or many assemblies in th
     for f in *.fasta; do blastn -query $f -db nt -outfmt 0 -out "$f".blast -num_alignments 0 -num_threads 40 -num_descriptions 20; done
 
 ## Usage
-Just place the correctly named assemblies and blast files on the same folder and run the script (you may need to make the script executable first with 
+Just place the correctly named assemblies and blast files on the same folder and run the script 
 
     chmod +x Shitty_Contigs.sh #only for the first time you run the script in a given computer
     ./Shitty_Contigs.sh

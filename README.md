@@ -3,11 +3,11 @@
 Shitty_Contigs.sh is a bash script which finds contigs in genomic assemblies that MAY BE the result of contaminants that were unintentionally sequenced with the intended sample. (Apparently, it also finds assembled plasmids and phages!). 
 
 
-## Workflow
+## Workflow of Shitty_Contigs.sh
 
-First, Shitty_Contigs.sh identifies what organism (at the genus level) your assembly belongs to, through analyzing a given quantity of blast hits for each contig. It Sums all the hits for every unique genus found and determines the genus of your assembly as the most found genus. 
-Second, it lists the contigs that contain at least one hit for the most found genus and labels them as "clean" contigs, and the contigs that does not and labels them as "possible contaminants".
-Finally, it removes the "possible contaminants" and gives you a "clean" assembly.
+1) Identify what organism (at the genus level) your assembly belongs to, through analyzing a given quantity of blast hits for each contig: by summming all the hits for every unique genus found and determining the genus of your assembly as the most found genus.
+2) List the contigs that contain at least one hit for the most found genus and labels them as "clean" contigs, and the contigs that does not and labels them as "possible contaminants".
+3) Separate the "possible contaminants" and "clean" the assembly.
 
 IMPORTANT: You need to use your criterion and knowledge of your isolate to judge if contigs proposed as contaminants are to be considered as so. Some cases are more obvious, such as finding many contigs of *Klebsiella oxytoca* on an assembly from a hot spring isolate. However, phages and plasmids can be found in many phylogenetically distant organisms. Also, sometimes there are no hits for some contigs. Shitty_Contigs.sh can only indicate what contigs undoubtedly belong to an assembly. In the end, you decide what contigs are indeed shitty.
 

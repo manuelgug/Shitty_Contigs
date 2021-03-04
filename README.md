@@ -9,7 +9,7 @@ Shitty_Contigs.sh is a bash script which finds contigs in genomic assemblies tha
 2) List the contigs that contain at least one hit for the most found genus and labels them as "clean" contigs, and the contigs that does not and labels them as "possible contaminants".
 3) Separate the "possible contaminants" and "clean" the assembly.
 
-IMPORTANT: You need to use your criterion and knowledge of your isolate to judge if contigs proposed as contaminants are to be considered as so. Some cases are more obvious, such as finding many contigs of *Klebsiella oxytoca* on an assembly from a hot spring isolate. However, phages and plasmids can be found in many phylogenetically distant organisms. Also, sometimes there are no hits for some contigs. Shitty_Contigs.sh can only indicate what contigs undoubtedly belong to an assembly. In the end, you decide what contigs are indeed shitty.
+IMPORTANT: You need to use your criterion and knowledge of your isolate to judge if contigs proposed as contaminants are to be considered as so. Some cases are more obvious, such as finding many contigs of *Klebsiella oxytoca* on an assembly from a hot spring isolate. However, phages and plasmids can be found in many phylogenetically distant organisms and sequences can be horizontally transferred. Also, sometimes there are no hits for some contigs. Shitty_Contigs.sh can only indicate what contigs undoubtedly belong to an assembly. In the end, you decide what contigs are indeed shitty.
 
 ## Inputs
 
@@ -28,10 +28,10 @@ Sample command for the blast search (works for a single or many assemblies in th
 ## Usage
 Just place the correctly named assemblies and blast files on the same folder and run the script (you may need to make the script executable first with 
 
-    chmod +x Shitty_Contigs.sh
+    chmod +x Shitty_Contigs.sh #only for the first time you run the script in a given computer
     ./Shitty_Contigs.sh
 
 ## Outputs
 
-1) __*.poss-contam__ file: contains the contigs that didn't got a hit for the most found genera.
+1) __*.poss-contam__ file: contains the contigs that didn't got a hit for the most found genera. If no this file is not found on the results folder, all contigs belong to the same organism, therefore the assembly is undoubtedly clean.
 2) __*.CLEAN__ file: contains contigs that got at least one hit for the most found genera.

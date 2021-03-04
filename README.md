@@ -39,7 +39,7 @@ Just place the correctly named assemblies and blast files on the same folder and
     chmod +x Shitty_Contigs.sh #only for the first time you run the script in a given computer
     ./Shitty_Contigs.sh
 ****
-### Sample files
+### Sample inputs
 
 +Pseudomonas_aeruginosa_10-75.fasta & Pseudomonas_aeruginosa_10-75.fasta.blast: clean assembly (3933 contigs), all contigs belong to *Pseudomonas*  
 +Streptomyces_albidoflavus_NRRL_WC-3066.fasta & Streptomyces_albidoflavus_NRRL_WC-3066.fasta.blast: clean assembly (287 contigs), all contigs belong to *Streptomyces*  

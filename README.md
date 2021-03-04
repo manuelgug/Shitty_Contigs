@@ -18,6 +18,7 @@ For the correct usage of Shitty_Contigs.sh, you need:
 2) A blast results file of the contigs against a reference database* with the same name as the assembly file plus a .blast extension (*Streptomyces_contam-Pseudomonas.fasta.blast*).
     -The output format of the blast file should be 0 (-outfmt 0) and it should not have any alignment (-num_alignments 0). 
     -The number of hits for each search (-num_descriptions) is important, as some sequences can be found in many organisms and yours won't necessarily appear as the best hit in some cases. That means that the less desciptions used, the more astringency and also a higher chance of false negatives. After testing the program with many descriptions (1, 5, 10, 15, 20) I recommend using 20 (-num_descriptions 20).
+
 \*the program has been tested with the nt database from ncbi ftp://ftp.ncbi.nlm.nih.gov/blast/db/FASTA/nt.gz
 
 Sample command for the blast search (works for a single or many assemblies in the same folder):

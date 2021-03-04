@@ -1,6 +1,6 @@
 # Shitty_Contigs
 
-(https://github.com/manuelgug/Shitty_Contigs/blob/main/Shitty_Contigs_logo.png)
+![alt text](https://github.com/manuelgug/Shitty_Contigs/blob/main/Shitty_Contigs_logo.png)
 
 Shitty_Contigs.sh is a bash script for finding contigs in genomic assemblies that MAY BE the result of contaminants unintentionally sequenced alongside an intended sample. (Apparently, it also finds assembled plasmids and phages!). It works for any assembly from any organism.
 

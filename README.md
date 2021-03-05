@@ -12,7 +12,7 @@ Shitty_Contigs.sh is a bash script for finding contigs/scaffolds in genomic asse
 
 ![alt text](https://github.com/manuelgug/Shitty_Contigs/blob/main/listing.png) 
 
-4) Separate the possible contaminants from the clean the assembly.
+3) Separate the possible contaminants from the clean the assembly.
 
 ![alt text](https://github.com/manuelgug/Shitty_Contigs/blob/main/separating.png)
 

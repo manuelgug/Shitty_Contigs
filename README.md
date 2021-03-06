@@ -1,11 +1,11 @@
-# Shitty_Contigs
+# Shitty Contigs
 
 ![alt text](https://github.com/manuelgug/Shitty_Contigs/blob/main/Shitty_Contigs_logo.png)
 
 Shitty_Contigs.sh is a bash script for finding contigs/scaffolds in genomic assemblies that MAY BE the result of contaminants unintentionally sequenced alongside an intended isolate. (Apparently, it also finds assembled plasmids and phages!). It works for any assembly from any organism.
 
 
-## Workflow of Shitty_Contigs.sh
+## Workflow of Shitty Contigs
 
 1) Identify to what organism (at the genus level) an assembly belongs to, through analyzing a given quantity of blast hits for each contig: by summming all the hits for every unique genus found, Shitty_Contigs.sh labels the genus with the most hits determines as the genus of the assembly.
 2) List the contigs that contain at least one hit for the most found genus and labels them as "clean" contigs, and the contigs that does not and labels them as "possible contaminants".
@@ -20,7 +20,7 @@ IMPORTANT: You need to use your own criterion and knowledge of your isolate to j
 
 ## Inputs
 
-For the correct usage of Shitty_Contigs.sh, you need:
+For the correct usage of Shitty Contigs, you need:
 1) A genomic assembly with a .fasta extension on its file name (e.g. *Streptomyces_contam-Pseudomonas.fasta*)
 2) A blast results file of the contigs against a reference database[*] with the same name as the assembly file plus a .blast extension (e.g. *Streptomyces_contam-Pseudomonas.fasta.blast*).
 
@@ -28,7 +28,7 @@ For the correct usage of Shitty_Contigs.sh, you need:
    
    +The number of hits for each search (-num_descriptions) is important, as some sequences can be found in many organisms and yours won't necessarily appear as the best hit in some cases. It could be the 2nd, 3rd or 10th hit although still with a low e-value and high bitscore. That means that the less descriptions used, the more astringency applied, which translates into a higher chance of getting false negatives (more possible contaminants). After testing the program with many descriptions (1, 5, 10, 15, 20) I found 20 to be a good enough value (-num_descriptions 20). However, feel free to modify as needed.
 
-\[*]Shitty_Contigs.sh has been tested with the nt database from ncbi https://ftp.ncbi.nlm.nih.gov/blast/db/FASTA/nt.gz. You can download it and set it up with:
+\[*]Shitty Contigs has been tested with the nt database from ncbi https://ftp.ncbi.nlm.nih.gov/blast/db/FASTA/nt.gz. You can download it and set it up with:
 
     wget https://ftp.ncbi.nlm.nih.gov/blast/db/FASTA/nt.gz 
     gunzip -d nt.gz #beware it is 386 GB in size  
@@ -39,7 +39,7 @@ Sample command for the blast search (works for a single or many assemblies in th
     for f in *.fasta; do blastn -query $f -db nt -outfmt 0 -out "$f".blast -num_alignments 0 -num_threads 40 -num_descriptions 20; done
 
 ## Usage
-Just place the correctly named assemblies and blast files on the same folder and run the script 
+Just place the correctly named assemblies and blast files on the same folder and run the bash script 
 
     chmod +x Shitty_Contigs.sh #only for the first time you run the script in a given computer
     ./Shitty_Contigs.sh

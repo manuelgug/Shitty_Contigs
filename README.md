@@ -16,6 +16,10 @@ Shitty_Contigs.sh is a bash script for finding contigs/scaffolds in genomic asse
 
 ![alt text](https://github.com/manuelgug/Shitty_Contigs/blob/main/separating.png)
 
+4) Generate figures with shitty_figures.sh (Shitty_Contigs.sh takes care of it)
+
+
+
 IMPORTANT: You need to use your own criterion and knowledge of your isolate to judge if contigs proposed as contaminants are to be considered as so. Some cases are obvious, such as finding many contigs of *Klebsiella oxytoca* on an assembly from a hot spring isolate or elephant contigs on an *Arabidopsis* assembly. However, in microorganisms, phages and plasmids can be found in many phylogenetically distant organisms and many other sequences can be horizontally transferred. Also, sometimes there are no hits for some contigs. Shitty_Contigs.sh can only tell what contigs undoubtedly belong to an assembly. In the end, you decide what contigs are indeed shitty.
 
 ## Inputs
@@ -39,9 +43,9 @@ Sample command for the blast search (works for a single or many assemblies in th
     for f in *.fasta; do blastn -query $f -db nt -outfmt 0 -out "$f".blast -num_alignments 0 -num_threads 40 -num_descriptions 20; done
 
 ## Usage
-Just place the correctly named assemblies and blast files on the same folder and run the bash script 
+Just place the correctly named assemblies and blast files on the same folder (or copy the scripts to your PATH) and run the bash script 
 
-    chmod +x Shitty_Contigs.sh #only for the first time you run the script in a given computer
+    chmod +x Shitty_Contigs.sh shitty_figures.R #only for the first time you run the program in a given computer
     ./Shitty_Contigs.sh
 ****
 ### Example inputs
@@ -57,6 +61,7 @@ Just place the correctly named assemblies and blast files on the same folder and
 1) __*.poss-contam__ file: contains the contigs that didn't got a hit for the most found genera. If this file is not found on the results folder, all contigs belong to the same organism, therefore the assembly was already undoubtedly clean.
 2) __*.CLEAN__ file: contains contigs that got at least one hit for the most found genera. 
 3) __*-poss_contam_blastresults__ file: contains the blast hits for the contigs in *.poss-contam. Use it for assessing if this contigs should or should not be removed fom the assembly.
+4) __*.table__ file: table of hits for every unique genus found. This is the input for shitty_figures.R
 
 ## Credits
 

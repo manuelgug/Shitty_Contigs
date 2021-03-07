@@ -62,7 +62,7 @@ Just place the correctly named assemblies and blast files on the same folder (or
 1) __*.poss-contam__ file: contains the contigs that didn't got a hit for the most found genera. If this file is not found on the results folder, all contigs belong to the same organism, therefore the assembly was already undoubtedly clean.
 2) __*.CLEAN__ file: contains contigs that got at least one hit for the most found genera. 
 3) __*-poss_contam_blastresults__ file: contains the blast hits for the contigs in *.poss-contam. Use it for assessing if this contigs should or should not be removed fom the assembly.
-4) __*.table__ file: table of hits for every unique genus found. This is the input for shitty_figures.R
+4) __*.table__ file: table of hits for every unique genus found in the assembly. This is the input for shitty_figures.R.
 
 ## Credits
 

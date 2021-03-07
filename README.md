@@ -1,6 +1,6 @@
 # Shitty Contigs
 
-![alt text](https://github.com/manuelgug/Shitty_Contigs/blob/main/Shitty_Contigs_logo.png)
+![alt text](https://github.com/manuelgug/Shitty_Contigs/blob/main/images/Shitty_Contigs_logo.png)
 
 Shitty_Contigs.sh is a bash script for finding contigs/scaffolds in genomic assemblies that MAY BE the result of contaminants unintentionally sequenced alongside an intended isolate. (Apparently, it also finds assembled plasmids and phages!). It works for any assembly from any organism.
 
@@ -10,15 +10,15 @@ Shitty_Contigs.sh is a bash script for finding contigs/scaffolds in genomic asse
 1) Identify to what organism (at the genus level) an assembly belongs to, through analyzing a given quantity of blast hits for each contig: by summming all the hits for every unique genus found, Shitty_Contigs.sh labels the genus with the most hits determines as the genus of the assembly.
 2) List the contigs that contain at least one hit for the most found genus and labels them as "clean" contigs, and the contigs that does not and labels them as "possible contaminants".
 
-![alt text](https://github.com/manuelgug/Shitty_Contigs/blob/main/listing.png) 
+![alt text](https://github.com/manuelgug/Shitty_Contigs/blob/main/images/listing.png) 
 
 3) Separate the possible contaminants from the clean the assembly.
 
-![alt text](https://github.com/manuelgug/Shitty_Contigs/blob/main/separating.png)
+![alt text](https://github.com/manuelgug/Shitty_Contigs/blob/main/images/separating.png)
 
 4) Generate figures with shitty_figures.sh (Shitty_Contigs.sh takes care of it)
 
-
+![alt text](https://github.com/manuelgug/Shitty_Contigs/blob/main/images/shitty_figures_results.png)
 
 IMPORTANT: You need to use your own criterion and knowledge of your isolate to judge if contigs proposed as contaminants are to be considered as so. Some cases are obvious, such as finding many contigs of *Klebsiella oxytoca* on an assembly from a hot spring isolate or elephant contigs on an *Arabidopsis* assembly. However, in microorganisms, phages and plasmids can be found in many phylogenetically distant organisms and many other sequences can be horizontally transferred. Also, sometimes there are no hits for some contigs. Shitty_Contigs.sh can only tell what contigs undoubtedly belong to an assembly. In the end, you decide what contigs are indeed shitty.
 

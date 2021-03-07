@@ -16,9 +16,10 @@ Shitty_Contigs.sh is a bash script for finding contigs/scaffolds in genomic asse
 
 ![alt text](https://github.com/manuelgug/Shitty_Contigs/blob/main/images/separating.png)
 
-4) Generate figures with shitty_figures.sh (Shitty_Contigs.sh takes care of it)
+4) Generate figures with shitty_figures.R (Shitty_Contigs.sh takes care of it)
 
 ![alt text](https://github.com/manuelgug/Shitty_Contigs/blob/main/images/shitty_figures_results.png)
+Figure 1. Blast hits for each found genus on each assembly. The green bar represents the most found genus and all the orange ones are other genera found fewer times. A expected, *Streptomyces* (__A__) and *Pseudomonas* (__B__) assemblies appear clean, and the *Streptomyces* assembly contaminated with 100 *Pseudomonas* contigs (__C__) appears indeed contaminated. 
 
 IMPORTANT: You need to use your own criterion and knowledge of your isolate to judge if contigs proposed as contaminants are to be considered as so. Some cases are obvious, such as finding many contigs of *Klebsiella oxytoca* on an assembly from a hot spring isolate or elephant contigs on an *Arabidopsis* assembly. However, in microorganisms, phages and plasmids can be found in many phylogenetically distant organisms and many other sequences can be horizontally transferred. Also, sometimes there are no hits for some contigs. Shitty_Contigs.sh can only tell what contigs undoubtedly belong to an assembly. In the end, you decide what contigs are indeed shitty.
 

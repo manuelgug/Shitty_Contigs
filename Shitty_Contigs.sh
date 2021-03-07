@@ -94,6 +94,17 @@ for f in *.blast; do
         '  CON*$f*.txt $f >> $f-poss_contam_blastresults 2>/dev/null
 done
 
+#Prepare inputs for R visualization
+for f in *.blast; do awk '/^Query=/,/^Lambda/' $f | sed '/^Query= / {N ; s/\n//g}' | sed '/^$/d' | sed -r '/Length|Score|Lambda|Sequences producing significant alignme$
+for f in *.formatted; do sed 's/Query= /Query=/g' $f | sed 's/[^\s]*\s\s//' | sed 's/\s.*//' | sed '/^$/d' | sed 's/^[0-9].*//g'> $f.limpio; done
+for f in *.limpio; do cat $f | tr -s " " "\n" | sort | uniq -c | sort | sed '/Query=/d' | sed 's/^[ ]*//g' > $f.table; done
+
+#Run Shitty_figures.R
+echo ""
+echo ""
+echo "GENERATING FIGURES"
+Rscript shitty_figures.R
+
 #Group results of each assembly in a separate folder
 rm *contig* *formatted *.limpio *CONTAMINANTES*
 for x in *.fasta; do mkdir "${x%%.fasta}"_results; done	

@@ -70,6 +70,6 @@ Manuel II García-Ulloa
 manuel.gug@hotmail.com  
 github.com/manuelgug  
 
-Mariette Viladomat Jasso
-marietteviladomat@gmail.com
+Mariette Viladomat Jasso  
+marietteviladomat@gmail.com  
 github.com/MarietteViladomat

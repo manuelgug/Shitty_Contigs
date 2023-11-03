@@ -69,3 +69,7 @@ Just place the correctly named assemblies and blast files on the same folder (or
 Manuel II García-Ulloa  
 manuel.gug@hotmail.com  
 github.com/manuelgug  
+
+Mariette Viladomat Jasso
+marietteviladomat@gmail.com
+https://github.com/MarietteViladomat
